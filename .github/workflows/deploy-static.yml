@@ -1,33 +1,23 @@
-name: Build and Deploy Static Site
+name: Deploy to Hostinger
+
 on:
   push:
     branches:
-      - main
+      - main  # triggers on push to main branch
+
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Main Repo
+      - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
+
+      - name: Upload files to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          node-version: '20'
-      - name: Install dependencies
-        run: npm install
-      - name: Build Static Files
-        run: npm run build
-      - name: Copy Public Files
-        run: |
-          cp -r public/* dist/
-          cp robots.txt dist/
-          cp sitemap.xml dist/
-          cp .htaccess dist/
-      - name: Deploy to Static Repo
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: main
-          destination_repo: FaisalJamali123/github-helper-hub-static
-          force_orphan: true
+          server: ftp.yourhostingerdomain.com  # replace with your Hostinger FTP host
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./  # path to files you want to upload (your repo root)
+          server-dir: /public_html/  # Hostinger folder for live site
