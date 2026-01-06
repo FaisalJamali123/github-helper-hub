@@ -8,7 +8,7 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import FAQSection from "@/components/home/FAQSection";
 import NewsletterSection from "@/components/home/NewsletterSection";
 import CTASection from "@/components/home/CTASection";
-import SEOHead from "@/components/SEOHead";
+import SEOHead from "@/components/shared/SEOHead";
 import StructuredData, {
   organizationSchema,
   websiteSchema,
@@ -18,7 +18,7 @@ import StructuredData, {
   localBusinessSchema,
   generateBreadcrumbSchema,
   generateWebPageSchema,
-} from "@/components/StructuredData";
+} from "@/components/shared/StructuredData";
 
 const Index = () => {
   const breadcrumbItems = [

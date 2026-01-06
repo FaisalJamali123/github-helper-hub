@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { Users, Target, Shield, Heart, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
-import SEOHead from "@/components/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, organizationSchema } from "@/components/StructuredData";
+import SEOHead from "@/components/shared/SEOHead";
+import StructuredData, { generateBreadcrumbSchema, organizationSchema } from "@/components/shared/StructuredData";
 
 const About = () => {
   const breadcrumbItems = [

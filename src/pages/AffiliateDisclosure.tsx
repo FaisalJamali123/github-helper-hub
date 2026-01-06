@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import SEOHead from "@/components/SEOHead";
-import StructuredData, { generateBreadcrumbSchema } from "@/components/StructuredData";
+import SEOHead from "@/components/shared/SEOHead";
+import StructuredData, { generateBreadcrumbSchema } from "@/components/shared/StructuredData";
 import { Link } from "react-router-dom";
 import { ExternalLink, CheckCircle } from "lucide-react";
 
