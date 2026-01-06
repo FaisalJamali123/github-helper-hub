@@ -4,8 +4,8 @@ import { PiggyBank, ArrowRight, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import Layout from "@/components/layout/Layout";
-import SEOHead from "@/components/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, generateArticleSchema } from "@/components/StructuredData";
+import SEOHead from "@/components/shared/SEOHead";
+import StructuredData, { generateBreadcrumbSchema, generateArticleSchema } from "@/components/shared/StructuredData";
 import { formatCurrency } from "@/lib/taxCalculations";
 
 const BlogHowMuchToSetAside = () => {

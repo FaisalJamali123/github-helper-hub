@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import logoImage from "@/assets/logo.png";
 
 const Header = () => {
@@ -44,13 +44,23 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`nav-link text-sm ${isActive(link.href) ? "text-primary font-semibold" : ""}`}
-              >
-                {link.label}
-              </a>
+              link.href.includes('#') ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`nav-link text-sm ${isActive(link.href) ? "text-primary font-semibold" : ""}`}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`nav-link text-sm ${isActive(link.href) ? "text-primary font-semibold" : ""}`}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -87,14 +97,25 @@ const Header = () => {
           <nav className="md:hidden py-6 border-t border-border fade-in">
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`nav-link py-3 px-4 rounded-xl hover:bg-muted transition-colors ${isActive(link.href) ? "text-primary bg-primary/5 font-semibold" : ""}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
+                link.href.includes('#') ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`nav-link py-3 px-4 rounded-xl hover:bg-muted transition-colors ${isActive(link.href) ? "text-primary bg-primary/5 font-semibold" : ""}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`nav-link py-3 px-4 rounded-xl hover:bg-muted transition-colors ${isActive(link.href) ? "text-primary bg-primary/5 font-semibold" : ""}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
               <Button asChild variant="accent" className="mt-4">
                 <a href="/#tools" onClick={() => setIsMenuOpen(false)}>

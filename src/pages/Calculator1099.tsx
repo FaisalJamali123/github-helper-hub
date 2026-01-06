@@ -5,15 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
-import SEOHead from "@/components/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/StructuredData";
-import ReceiptScanner from "@/components/ReceiptScanner";
-import InfoTooltip from "@/components/Tooltip";
-
-import TaxBreakdownChart from "@/components/TaxBreakdownChart";
-import FederalBracketBreakdown from "@/components/FederalBracketBreakdown";
-import StateTaxToggle from "@/components/StateTaxToggle";
-import Calculator1099SEOContent from "@/components/Calculator1099SEOContent";
+import SEOHead from "@/components/shared/SEOHead";
+import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/shared/StructuredData";
+import ReceiptScanner from "@/components/shared/ReceiptScanner";
+import InfoTooltip from "@/components/shared/InfoTooltip";
+import TaxBreakdownChart from "@/components/calculator/TaxBreakdownChart";
+import FederalBracketBreakdown from "@/components/calculator/FederalBracketBreakdown";
+import StateTaxToggle from "@/components/calculator/StateTaxToggle";
+import Calculator1099SEOContent from "@/components/calculator/Calculator1099SEOContent";
 import { jsPDF } from "jspdf";
 import {
   calculate1099TaxAdvanced,

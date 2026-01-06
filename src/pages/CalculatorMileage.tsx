@@ -11,10 +11,10 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Layout from "@/components/layout/Layout";
-import SEOHead from "@/components/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/StructuredData";
-import InfoTooltip from "@/components/Tooltip";
-import CalculatorMileageSEOContent from "@/components/CalculatorMileageSEOContent";
+import SEOHead from "@/components/shared/SEOHead";
+import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/shared/StructuredData";
+import InfoTooltip from "@/components/shared/InfoTooltip";
+import CalculatorMileageSEOContent from "@/components/calculator/CalculatorMileageSEOContent";
 import { jsPDF } from "jspdf";
 import { formatCurrency, formatPercent } from "@/lib/taxCalculations";
 

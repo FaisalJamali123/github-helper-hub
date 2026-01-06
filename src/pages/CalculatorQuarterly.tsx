@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
-import SEOHead from "@/components/SEOHead";
-import CalculatorQuarterlySEOContent from "@/components/CalculatorQuarterlySEOContent";
-import StructuredData, { generateBreadcrumbSchema } from "@/components/StructuredData";
+import SEOHead from "@/components/shared/SEOHead";
+import CalculatorQuarterlySEOContent from "@/components/calculator/CalculatorQuarterlySEOContent";
+import StructuredData, { generateBreadcrumbSchema } from "@/components/shared/StructuredData";
 import {
   calculate1099Tax,
   TAX_CONSTANTS_2025,

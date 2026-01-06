@@ -1,11 +1,11 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import SEOHead from "@/components/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/StructuredData";
+import SEOHead from "@/components/shared/SEOHead";
+import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/shared/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import Calculator1099VsW2SEOContent from "@/components/Calculator1099VsW2SEOContent";
+import Calculator1099VsW2SEOContent from "@/components/calculator/Calculator1099VsW2SEOContent";
 import { 
   calculateFederalTax, 
   calculateSelfEmploymentTax,

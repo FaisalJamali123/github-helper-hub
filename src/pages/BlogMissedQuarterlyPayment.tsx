@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
-import SEOHead from "@/components/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, generateArticleSchema } from "@/components/StructuredData";
+import SEOHead from "@/components/shared/SEOHead";
+import StructuredData, { generateBreadcrumbSchema, generateArticleSchema } from "@/components/shared/StructuredData";
 import { TAX_CONSTANTS_2025, formatCurrency } from "@/lib/taxCalculations";
 
 const BlogMissedQuarterlyPayment = () => {
