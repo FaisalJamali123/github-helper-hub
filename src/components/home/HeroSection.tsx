@@ -2,8 +2,11 @@ import { ArrowRight, AlertTriangle, CheckCircle, Sparkles, Calendar, Clock } fro
 import { Button } from "@/components/ui/button";
 import StateFinder from "./StateFinder";
 import { Link } from "react-router-dom";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const HeroSection = () => {
+  const { handleAnchorClick } = useSmoothScroll();
+  
   // Calculate days into 2026
   const now = new Date();
   const currentYear = now.getFullYear();
@@ -97,7 +100,11 @@ const HeroSection = () => {
                 size="xl" 
                 className="group"
               >
-                <a href="#tools" aria-label="Start calculating your 1099 taxes now">
+                <a 
+                  href="#tools" 
+                  onClick={(e) => handleAnchorClick(e, "#tools")}
+                  aria-label="Start calculating your 1099 taxes now"
+                >
                   Calculate My Taxes Free
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
