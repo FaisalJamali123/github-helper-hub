@@ -1,0 +1,22 @@
+# Hostinger/Apache SPA routing for React Router (Vite build)
+# Place the *built* files (dist/*) in public_html/
+
+Options -MultiViews
+
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Don’t rewrite real files/folders
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # SPA fallback (enables /calculator/... routes)
+  RewriteRule . /index.html [L]
+</IfModule>

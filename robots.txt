@@ -1,0 +1,15 @@
+# Money Grow Tools - robots.txt
+# https://moneygrowtools.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://moneygrowtools.com/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
