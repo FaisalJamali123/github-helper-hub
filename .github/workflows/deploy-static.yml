@@ -1,41 +1,28 @@
 name: Build and Deploy Static Site
-
 on:
   push:
     branches:
-      - main  # triggers every time you push to main branch
-
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout main repo
       - name: Checkout Main Repo
         uses: actions/checkout@v3
-
-      # Step 2: Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
-
-      # Step 4: Build React app into dist/
       - name: Build Static Files
         run: npm run build
-
-      # Step 5: Copy public files into dist/
       - name: Copy Public Files
         run: |
-          cp -r public/* dist/      # Copies everything from public/ to dist/
-          cp robots.txt dist/       # Copy robots.txt
-          cp sitemap.xml dist/      # Copy sitemap.xml
-          cp .htaccess dist/        # Copy .htaccess
-
-      # Step 6: Deploy to static repo
+          cp -r public/* dist/
+          cp robots.txt dist/
+          cp sitemap.xml dist/
+          cp .htaccess dist/
       - name: Deploy to Static Repo
         uses: peaceiris/actions-gh-pages@v6
         with:
