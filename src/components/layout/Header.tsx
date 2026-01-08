@@ -15,6 +15,7 @@ const Header = () => {
     { href: "/best-1099-tax-software", label: "Best Software" },
     { href: "/#blog", label: "Blog" },
     { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact Us" },
   ];
 
   const isActive = (href: string) => {
