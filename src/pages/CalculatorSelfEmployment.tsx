@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateProductSchema } from "@/components/shared/StructuredData";
 
 import {
   calculateSelfEmploymentTax,
@@ -78,7 +78,14 @@ const CalculatorSelfEmployment = () => {
         canonicalUrl="https://moneygrowtools.com/calculator/self-employment"
         keywords={["self-employment tax calculator", "15.3% SE tax", "Social Security Medicare tax", "1099 vs W-2 tax"]}
       />
-      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems)]} />
+      <StructuredData schemas={[
+        generateBreadcrumbSchema(breadcrumbItems),
+        generateProductSchema({
+          name: "Self-Employment Tax Calculator",
+          description: "Calculate your 15.3% self-employment tax with Social Security and Medicare breakdown. Free for freelancers.",
+          url: "https://moneygrowtools.com/calculator/self-employment"
+        })
+      ]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

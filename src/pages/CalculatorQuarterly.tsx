@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
 import CalculatorQuarterlySEOContent from "@/components/calculator/CalculatorQuarterlySEOContent";
-import StructuredData, { generateBreadcrumbSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateProductSchema } from "@/components/shared/StructuredData";
 import {
   calculate1099Tax,
   TAX_CONSTANTS_2025,
@@ -154,7 +154,14 @@ END:VCALENDAR`;
         canonicalUrl="https://moneygrowtools.com/calculator/quarterly"
         keywords={["quarterly tax calculator", "estimated tax payments", "1099 quarterly taxes", "IRS payment deadlines 2026"]}
       />
-      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems)]} />
+      <StructuredData schemas={[
+        generateBreadcrumbSchema(breadcrumbItems),
+        generateProductSchema({
+          name: "Quarterly Tax Calculator",
+          description: "Calculate quarterly estimated tax payments for 2026. See IRS deadlines and avoid penalties. Free for freelancers.",
+          url: "https://moneygrowtools.com/calculator/quarterly"
+        })
+      ]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema, generateProductSchema } from "@/components/shared/StructuredData";
 import ReceiptScanner from "@/components/shared/ReceiptScanner";
 import InfoTooltip from "@/components/shared/InfoTooltip";
 import TaxBreakdownChart from "@/components/calculator/TaxBreakdownChart";
@@ -273,7 +273,15 @@ const Calculator1099 = () => {
         canonicalUrl="https://moneygrowtools.com/calculator/1099"
         keywords={["1099 tax calculator", "self-employment tax", "freelance tax calculator", "1099 taxes 2026"]}
       />
-      <StructuredData schemas={[softwareApplicationSchema, generateBreadcrumbSchema(breadcrumbItems)]} />
+      <StructuredData schemas={[
+        softwareApplicationSchema, 
+        generateBreadcrumbSchema(breadcrumbItems),
+        generateProductSchema({
+          name: "1099 Tax Calculator",
+          description: "Free 1099 tax calculator for freelancers. Calculate federal, state, and self-employment tax with advanced deductions. Updated for 2026.",
+          url: "https://moneygrowtools.com/calculator/1099"
+        })
+      ]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
