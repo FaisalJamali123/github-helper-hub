@@ -250,6 +250,20 @@ export const howToSchema = {
   ]
 };
 
+// FAQPage Schema generator - for individual pages with custom Q&As
+export const generateFAQPageSchema = (faqs: { question: string; answer: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
+
 // BreadcrumbList Schema generator
 export const generateBreadcrumbSchema = (items: { name: string; url: string }[]) => ({
   "@context": "https://schema.org",

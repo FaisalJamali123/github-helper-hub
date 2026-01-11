@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
 import CalculatorQuarterlySEOContent from "@/components/calculator/CalculatorQuarterlySEOContent";
-import StructuredData, { generateBreadcrumbSchema, generateProductSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateProductSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 import {
   calculate1099Tax,
   TAX_CONSTANTS_2025,
@@ -160,7 +160,14 @@ END:VCALENDAR`;
           name: "Quarterly Tax Calculator",
           description: "Calculate quarterly estimated tax payments for 2026. See IRS deadlines and avoid penalties. Free for freelancers.",
           url: "https://moneygrowtools.com/calculator/quarterly"
-        })
+        }),
+        generateFAQPageSchema([
+          { question: "When are quarterly tax payments due in 2026?", answer: "Q1: April 15, 2026; Q2: June 15, 2026; Q3: September 15, 2026; Q4: January 15, 2027. These cover income earned in the prior quarter." },
+          { question: "What happens if I miss a quarterly payment?", answer: "The IRS charges an underpayment penalty of approximately 8% annually, calculated daily from the due date until you pay. A $5,000 underpayment for 90 days costs about $99 in penalties." },
+          { question: "How do I calculate my quarterly payment amount?", answer: "Divide your estimated annual tax liability by 4. This includes federal income tax, self-employment tax (15.3%), and state income tax." },
+          { question: "What is the safe harbor rule?", answer: "You can avoid penalties by paying at least 90% of current year's tax, OR 100% of last year's tax (110% if income exceeded $150,000), OR if you owe less than $1,000 when filing." },
+          { question: "Can I pay more than the quarterly amount?", answer: "Yes! Paying extra in earlier quarters can help offset higher income periods and reduce potential penalties if you underpay later." }
+        ])
       ]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">

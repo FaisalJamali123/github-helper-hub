@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, generateArticleSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateArticleSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 import { TAX_CONSTANTS_2025, formatCurrency } from "@/lib/taxCalculations";
 
 const BlogMissedQuarterlyPayment = () => {
@@ -63,6 +63,14 @@ const BlogMissedQuarterlyPayment = () => {
     url: "https://moneygrowtools.com/blog/missed-quarterly-payment",
   });
 
+  const faqSchema = generateFAQPageSchema([
+    { question: "What is the IRS penalty for missing quarterly payments?", answer: "The IRS charges approximately 8% annually (federal short-term rate + 3%) on underpayments, calculated daily from the due date until you pay. A $10,000 underpayment for one quarter could cost $200+ in penalties." },
+    { question: "What is the safe harbor rule for quarterly taxes?", answer: "You can avoid penalties by paying at least 90% of your current year's tax liability, OR 100% of last year's tax (110% if income exceeded $150,000), OR if you owe less than $1,000 when you file." },
+    { question: "Can I get IRS penalties waived?", answer: "Yes, in some cases. The IRS may waive or reduce penalties for reasonable cause (serious illness, natural disaster), first-time penalty abatement (clean record for 3 years), or if you became disabled or retired during the tax year." },
+    { question: "What should I do if I've already missed a payment?", answer: "Pay as soon as possible (penalty accrues daily), pay online at IRS.gov using Direct Pay, increase remaining quarterly payments to catch up, and don't skip the next payment—missing multiple quarters compounds penalties." },
+    { question: "How can I prevent missing quarterly payments?", answer: "Set calendar reminders 2 weeks before each deadline, use EFTPS to schedule payments in advance, and save 25-30% of every payment in a dedicated tax savings account." }
+  ]);
+
   return (
     <Layout>
       <SEOHead
@@ -72,7 +80,7 @@ const BlogMissedQuarterlyPayment = () => {
         ogType="article"
         keywords={["missed quarterly tax payment", "IRS underpayment penalty", "estimated tax penalty", "late tax payment"]}
       />
-      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems), articleSchema]} />
+      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems), articleSchema, faqSchema]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

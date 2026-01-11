@@ -1,11 +1,19 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Receipt, ArrowRight, Check, X, AlertTriangle } from "lucide-react";
+import { Receipt, ArrowRight, Check, X, AlertTriangle, Calculator, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, generateArticleSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateArticleSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
+import { formatCurrency } from "@/lib/taxCalculations";
 
 const BlogWriteOffGroceries = () => {
+  const [businessMeals, setBusinessMeals] = useState<number>(500);
+  const [travelMeals, setTravelMeals] = useState<number>(300);
+  const mealDeduction = (businessMeals * 0.5) + (travelMeals * 0.5);
+  const taxSavings = mealDeduction * 0.25; // Assuming 25% tax bracket
+
   const breadcrumbItems = [
     { name: "Home", url: "https://moneygrowtools.com/" },
     { name: "Blog", url: "https://moneygrowtools.com/blog" },
@@ -19,6 +27,14 @@ const BlogWriteOffGroceries = () => {
     dateModified: "2025-01-01",
     url: "https://moneygrowtools.com/blog/write-off-groceries",
   });
+
+  const faqSchema = generateFAQPageSchema([
+    { question: "Can freelancers deduct groceries as a business expense?", answer: "Generally no. Regular groceries for personal consumption are not deductible—you'd eat regardless of working. However, food bloggers, caterers, and those buying food for business meals with clients (50% deductible) may have legitimate deductions." },
+    { question: "What food expenses CAN 1099 contractors deduct?", answer: "Business meals with clients (50% deductible if business is discussed), travel meals when traveling overnight for business (50%), food ingredients for content creation (food bloggers, recipe developers), and office snacks for employees if you have staff." },
+    { question: "Can I deduct my lunch if I work from home?", answer: "No. Working from home doesn't change the nature of personal meals. You would eat lunch whether you were working or not, so it's not a business expense." },
+    { question: "Are DoorDash driver meals deductible?", answer: "No. The food you eat while delivering is personal consumption. The only food expense a delivery driver might deduct is food purchased for actual business meetings." },
+    { question: "What deductions should freelancers focus on instead of groceries?", answer: "Focus on larger legitimate deductions: home office ($5/sq ft up to $1,500), vehicle mileage ($0.70/mile in 2025), software/subscriptions (100% deductible), health insurance (full deduction if self-employed), and retirement contributions (SEP-IRA up to $69,000)." }
+  ]);
 
   const deductionCategories = [
     {
@@ -67,7 +83,7 @@ const BlogWriteOffGroceries = () => {
         ogType="article"
         keywords={["write off groceries 1099", "can freelancers deduct food", "business meal deduction", "1099 food expenses"]}
       />
-      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems), articleSchema]} />
+      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems), articleSchema, faqSchema]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,6 +117,55 @@ const BlogWriteOffGroceries = () => {
               <span>6 min read</span>
             </div>
           </header>
+
+          {/* Quick Deduction Checker - Embedded Tool */}
+          <div className="bg-card rounded-xl border border-border p-6 sm:p-8 mb-8 shadow-soft">
+            <h2 className="font-heading font-semibold text-xl text-foreground mb-6 flex items-center gap-2">
+              <Calculator className="w-5 h-5 text-primary" />
+              Quick Meal Deduction Checker
+            </h2>
+            <div className="space-y-6">
+              <div>
+                <div className="flex justify-between mb-2">
+                  <label className="text-sm font-medium text-foreground">Business Meals with Clients (Annual)</label>
+                  <span className="text-sm font-bold text-primary">{formatCurrency(businessMeals)}</span>
+                </div>
+                <Slider
+                  value={[businessMeals]}
+                  onValueChange={(value) => setBusinessMeals(value[0])}
+                  min={0}
+                  max={5000}
+                  step={100}
+                />
+              </div>
+              <div>
+                <div className="flex justify-between mb-2">
+                  <label className="text-sm font-medium text-foreground">Travel Meals (Overnight Business Trips)</label>
+                  <span className="text-sm font-bold text-primary">{formatCurrency(travelMeals)}</span>
+                </div>
+                <Slider
+                  value={[travelMeals]}
+                  onValueChange={(value) => setTravelMeals(value[0])}
+                  min={0}
+                  max={3000}
+                  step={50}
+                />
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4 pt-4 border-t border-border">
+                <div className="bg-success/10 rounded-lg p-4 text-center">
+                  <p className="text-sm text-muted-foreground">Total Meal Deduction (50%)</p>
+                  <p className="text-2xl font-heading font-bold text-success">{formatCurrency(mealDeduction)}</p>
+                </div>
+                <div className="bg-primary/10 rounded-lg p-4 text-center">
+                  <p className="text-sm text-muted-foreground">Est. Tax Savings (~25% bracket)</p>
+                  <p className="text-2xl font-heading font-bold text-primary">{formatCurrency(taxSavings)}</p>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground text-center">
+                Note: Regular groceries for personal consumption are NOT deductible. Only business & travel meals qualify.
+              </p>
+            </div>
+          </div>
 
           {/* TL;DR */}
           <div className="bg-success/10 border-l-4 border-success rounded-r-lg p-6 mb-8">
