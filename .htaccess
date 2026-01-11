@@ -1,22 +1,31 @@
-# Hostinger/Apache SPA routing for React Router (Vite build)
-# Place the *built* files (dist/*) in public_html/
-
 Options -MultiViews
 
-<IfModule mod_mime.c>
-  AddType application/javascript .js
-  AddType text/css .css
-</IfModule>
+RewriteEngine On
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+# -------------------------
+# 1. Remove .html ghosts
+# -------------------------
+RewriteCond %{THE_REQUEST} \s/+(.*)\.html[\s?]
+RewriteRule ^ %1 [R=301,L]
 
-  # Don’t rewrite real files/folders
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
+# -------------------------
+# 2. Block obvious ghost URLs
+# -------------------------
+RewriteCond %{REQUEST_URI} ^/(wp-admin|wp-login|xmlrpc|cgi-bin|old|backup|test|temp|undefined)
+RewriteRule ^ - [R=404,L]
 
-  # SPA fallback (enables /calculator/... routes)
-  RewriteRule . /index.html [L]
-</IfModule>
+# -------------------------
+# 3. Allow only valid routes
+# -------------------------
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_URI} !^/calculator(/.*)?$
+RewriteCond %{REQUEST_URI} !^/privacy-policy$
+RewriteCond %{REQUEST_URI} !^/terms$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ - [R=404,L]
+
+# -------------------------
+# 4. React SPA fallback
+# -------------------------
+RewriteRule ^ index.html [L]
