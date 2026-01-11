@@ -1,3 +1,4 @@
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { 
   Calendar, ArrowRight, Calculator, FileText, DollarSign, 
@@ -5,11 +6,49 @@ import {
   PiggyBank, Clock, Percent, TrendingUp, BookOpen
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, generateArticleSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateArticleSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
+import { calculateFederalTax, formatCurrency, formatPercent } from "@/lib/taxCalculations";
 
 const Blog2026TaxGuide = () => {
+  // 2026 Tax Bracket Finder state
+  const [bracketIncome, setBracketIncome] = useState<string>("75000");
+  const [bracketStatus, setBracketStatus] = useState<"single" | "mfj">("single");
+  
+  const bracketResults = useMemo(() => {
+    const income = parseFloat(bracketIncome) || 0;
+    if (income <= 0) return null;
+    const standardDeduction = bracketStatus === "mfj" ? 32200 : 16100;
+    const taxableIncome = Math.max(0, income - standardDeduction);
+    const federalTax = calculateFederalTax(taxableIncome, bracketStatus);
+    const seTax = income * 0.9235 * 0.153;
+    const totalTax = federalTax + seTax;
+    const effectiveRate = income > 0 ? totalTax / income : 0;
+    
+    // Determine marginal bracket
+    let bracket = "10%";
+    if (bracketStatus === "single") {
+      if (taxableIncome > 609350) bracket = "37%";
+      else if (taxableIncome > 243725) bracket = "35%";
+      else if (taxableIncome > 191950) bracket = "32%";
+      else if (taxableIncome > 100525) bracket = "24%";
+      else if (taxableIncome > 47150) bracket = "22%";
+      else if (taxableIncome > 11600) bracket = "12%";
+    } else {
+      if (taxableIncome > 731200) bracket = "37%";
+      else if (taxableIncome > 487450) bracket = "35%";
+      else if (taxableIncome > 383900) bracket = "32%";
+      else if (taxableIncome > 201050) bracket = "24%";
+      else if (taxableIncome > 94300) bracket = "22%";
+      else if (taxableIncome > 23200) bracket = "12%";
+    }
+    
+    return { federalTax, seTax, totalTax, effectiveRate, bracket, taxableIncome };
+  }, [bracketIncome, bracketStatus]);
+
   const breadcrumbItems = [
     { name: "Home", url: "https://moneygrowtools.com/" },
     { name: "Blog", url: "https://moneygrowtools.com/blog" },
@@ -98,7 +137,13 @@ const Blog2026TaxGuide = () => {
     { name: "Temporary Perks", desc: "Qualified tips/overtime deductions (through 2028)" },
   ];
 
-  return (
+  const faqSchema = generateFAQPageSchema([
+    { question: "What are the major 1099 tax changes for 2026?", answer: "The OBBBA raises the 1099-NEC/MISC reporting threshold to $2,000 (up from $600), meaning fewer forms from clients. Self-employment tax stays at 15.3%, and standard deduction increases to ~$16,100 (single) / ~$32,200 (married filing jointly)." },
+    { question: "What is the self-employment tax rate for 2026?", answer: "The self-employment tax rate remains 15.3%: 12.4% for Social Security (on first ~$184,500 of income) and 2.9% for Medicare (unlimited). High earners pay an additional 0.9% Medicare surtax on income above $200,000 (single)." },
+    { question: "When are quarterly estimated tax payments due in 2026?", answer: "For tax year 2026: Q1 is April 15, 2026; Q2 is June 15, 2026; Q3 is September 15, 2026; Q4 is January 15, 2027. Missing these deadlines results in IRS penalties of approximately 8% annually." },
+    { question: "What are the best deductions for freelancers in 2026?", answer: "Top deductions include: home office ($5/sq ft up to $1,500), vehicle mileage (~$0.70/mile), health insurance premiums, retirement contributions (SEP-IRA/Solo 401k), equipment, software subscriptions, internet/phone, and professional development." },
+    { question: "Do I still need to pay taxes if I don't receive a 1099 form?", answer: "Yes! All income is taxable regardless of whether you receive a 1099. The $2,000 threshold only affects reporting requirements for payers. Track all income meticulously and report it on your tax return." }
+  ]);
     <Layout>
       <SEOHead
         title="2026 1099 Tax Guide for Freelancers | Prepare Now for Tax Year 2026"
@@ -116,7 +161,7 @@ const Blog2026TaxGuide = () => {
           "freelancer deductions 2026"
         ]}
       />
-      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems), articleSchema]} />
+      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems), articleSchema, faqSchema]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -194,6 +239,78 @@ const Blog2026TaxGuide = () => {
               Self-employment tax stays at <strong>15.3%</strong>. File if net earnings hit $400+. 
               Pay quarterly to avoid penalties, and maximize deductions to lower your effective rate.
             </p>
+          </div>
+
+          {/* 2026 Tax Bracket Finder - Embedded Tool */}
+          <div className="bg-card rounded-xl border border-border p-6 sm:p-8 mb-10 shadow-soft not-prose">
+            <h2 className="font-heading font-semibold text-xl text-foreground mb-6 flex items-center gap-2">
+              <Calculator className="w-5 h-5 text-primary" />
+              2026 Tax Bracket Finder
+            </h2>
+            <div className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <Label className="text-foreground font-medium mb-2 block">Annual 1099 Income</Label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+                    <Input
+                      type="number"
+                      placeholder="75,000"
+                      value={bracketIncome}
+                      onChange={(e) => setBracketIncome(e.target.value)}
+                      className="pl-8"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Label className="text-foreground font-medium mb-2 block">Filing Status</Label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={() => setBracketStatus("single")}
+                      className={`py-2 px-3 rounded-lg border text-sm font-medium transition-colors ${
+                        bracketStatus === "single" ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-muted-foreground hover:border-primary"
+                      }`}
+                    >
+                      Single
+                    </button>
+                    <button
+                      onClick={() => setBracketStatus("mfj")}
+                      className={`py-2 px-3 rounded-lg border text-sm font-medium transition-colors ${
+                        bracketStatus === "mfj" ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-muted-foreground hover:border-primary"
+                      }`}
+                    >
+                      Married
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              {bracketResults && (
+                <div className="grid sm:grid-cols-3 gap-4 pt-4 border-t border-border">
+                  <div className="bg-primary/10 rounded-lg p-4 text-center">
+                    <p className="text-sm text-muted-foreground">Marginal Bracket</p>
+                    <p className="text-2xl font-heading font-bold text-primary">{bracketResults.bracket}</p>
+                  </div>
+                  <div className="bg-muted rounded-lg p-4 text-center">
+                    <p className="text-sm text-muted-foreground">Est. Total Tax</p>
+                    <p className="text-2xl font-heading font-bold text-foreground">{formatCurrency(bracketResults.totalTax)}</p>
+                  </div>
+                  <div className="bg-success/10 rounded-lg p-4 text-center">
+                    <p className="text-sm text-muted-foreground">Effective Rate</p>
+                    <p className="text-2xl font-heading font-bold text-success">{formatPercent(bracketResults.effectiveRate)}</p>
+                  </div>
+                </div>
+              )}
+              
+              <div className="flex justify-center">
+                <Button asChild variant="outline">
+                  <Link to="/calculator/1099">
+                    Get Full Tax Breakdown
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Article Content */}

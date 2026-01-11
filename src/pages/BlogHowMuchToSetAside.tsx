@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, generateArticleSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateArticleSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 import { formatCurrency } from "@/lib/taxCalculations";
 
 const BlogHowMuchToSetAside = () => {
@@ -30,6 +30,14 @@ const BlogHowMuchToSetAside = () => {
     url: "https://moneygrowtools.com/blog/how-much-to-set-aside",
   });
 
+  const faqSchema = generateFAQPageSchema([
+    { question: "How much should I set aside for 1099 taxes?", answer: "Most freelancers should save 25-30% of gross income for taxes. High earners ($100k+) in high-tax states (CA, NY, NJ) should save 35-40%. Low earners (<$40k) in no-tax states (TX, FL) can often get away with 20-25%." },
+    { question: "Why do I need to save more than 15.3% for self-employment tax?", answer: "The 15.3% is only the self-employment tax (Social Security + Medicare). You also owe federal income tax (10-37%) and potentially state income tax (0-13.3%), which can bring your total tax burden to 25-45%." },
+    { question: "Should I open a separate bank account for tax savings?", answer: "Yes! The most effective strategy is to open a separate high-yield savings account specifically for tax money. Transfer your savings percentage immediately when you receive each payment." },
+    { question: "Do business deductions lower my tax savings rate?", answer: "Yes. Every dollar you spend on legitimate business expenses reduces your taxable income. If your business expenses are 20% of gross income, you can potentially lower your savings rate by 4-5 percentage points." },
+    { question: "When are quarterly tax payments due?", answer: "For 2025: Q1 is April 15, Q2 is June 16, Q3 is September 15, and Q4 is January 15, 2026. Missing these deadlines results in IRS penalties of approximately 8% annually." }
+  ]);
+
   return (
     <Layout>
       <SEOHead
@@ -39,7 +47,7 @@ const BlogHowMuchToSetAside = () => {
         ogType="article"
         keywords={["how much to save for 1099 taxes", "freelance tax savings", "set aside for taxes", "1099 tax percentage"]}
       />
-      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems), articleSchema]} />
+      <StructuredData schemas={[generateBreadcrumbSchema(breadcrumbItems), articleSchema, faqSchema]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

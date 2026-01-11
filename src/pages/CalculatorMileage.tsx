@@ -12,7 +12,7 @@ import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 import InfoTooltip from "@/components/shared/InfoTooltip";
 import CalculatorMileageSEOContent from "@/components/calculator/CalculatorMileageSEOContent";
 import { jsPDF } from "jspdf";
@@ -217,7 +217,17 @@ const CalculatorMileage = () => {
           "mileage savings calculator"
         ]}
       />
-      <StructuredData schemas={[softwareApplicationSchema, generateBreadcrumbSchema(breadcrumbItems)]} />
+      <StructuredData schemas={[
+        softwareApplicationSchema, 
+        generateBreadcrumbSchema(breadcrumbItems),
+        generateFAQPageSchema([
+          { question: "What is the IRS mileage rate for 2026?", answer: "The IRS standard mileage rate for business use is $0.70 per mile for 2026. Medical and moving mileage is $0.21 per mile." },
+          { question: "Should I use standard mileage or actual expenses?", answer: "Standard mileage is simpler and often better for fuel-efficient vehicles. Actual expenses may be better if you have high car payments, repairs, or use a gas-guzzler." },
+          { question: "What mileage can I deduct as a freelancer?", answer: "You can deduct business-related driving including client meetings, supply runs, bank deposits, and traveling between work sites. Commuting from home to a regular workplace is not deductible." },
+          { question: "How do I track mileage for tax purposes?", answer: "Keep a mileage log with date, destination, business purpose, and miles driven. Apps can automate this. The IRS requires contemporaneous records." },
+          { question: "Can gig workers deduct mileage?", answer: "Yes! Uber, Lyft, DoorDash, and other gig workers can deduct all miles driven while working, including miles between pickups and while waiting for orders." }
+        ])
+      ]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

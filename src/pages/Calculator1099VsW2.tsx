@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Calculator1099VsW2SEOContent from "@/components/calculator/Calculator1099VsW2SEOContent";
@@ -115,7 +115,17 @@ const Calculator1099VsW2 = () => {
         canonicalUrl="https://moneygrowtools.com/calculator/1099-vs-w2"
         keywords={["1099 vs W2 calculator", "contractor vs employee", "freelance vs W2 taxes", "take home pay comparison"]}
       />
-      <StructuredData schemas={[breadcrumbSchema, softwareApplicationSchema]} />
+      <StructuredData schemas={[
+        breadcrumbSchema, 
+        softwareApplicationSchema,
+        generateFAQPageSchema([
+          { question: "Do 1099 contractors pay more taxes than W-2 employees?", answer: "1099 contractors pay the full 15.3% self-employment tax (vs 7.65% for W-2), but can deduct business expenses and half of SE tax. The net difference depends on deductions and benefits." },
+          { question: "What benefits do W-2 employees get that contractors don't?", answer: "W-2 employees typically get employer-paid health insurance, 401k matching, paid time off, unemployment insurance, and workers' compensation—often worth $10,000-$30,000 annually." },
+          { question: "How much more should I charge as a 1099 contractor?", answer: "To match W-2 take-home pay, contractors typically need to charge 25-40% more to cover self-employment tax, benefits, and business expenses." },
+          { question: "Can I switch from 1099 to W-2 or vice versa?", answer: "This depends on the employer and your work arrangement. The IRS has specific rules about worker classification—you can't simply choose which status you prefer." },
+          { question: "Which is better for taxes: 1099 or W-2?", answer: "It depends on your situation. 1099 offers more deductions and flexibility but requires paying full SE tax. W-2 provides benefits and stability but fewer tax write-offs." }
+        ])
+      ]} />
 
       <div className="min-h-screen bg-background">
         <section className="bg-gradient-to-b from-primary/10 to-background py-12">

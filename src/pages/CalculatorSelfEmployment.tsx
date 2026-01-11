@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, generateProductSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateProductSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 
 import {
   calculateSelfEmploymentTax,
@@ -84,7 +84,14 @@ const CalculatorSelfEmployment = () => {
           name: "Self-Employment Tax Calculator",
           description: "Calculate your 15.3% self-employment tax with Social Security and Medicare breakdown. Free for freelancers.",
           url: "https://moneygrowtools.com/calculator/self-employment"
-        })
+        }),
+        generateFAQPageSchema([
+          { question: "What is the self-employment tax rate?", answer: "The self-employment tax rate is 15.3% total: 12.4% for Social Security (on the first $176,100 of net earnings) and 2.9% for Medicare (no income cap)." },
+          { question: "Why is only 92.35% of my income taxed for SE tax?", answer: "The IRS reduces your taxable self-employment income by 7.65% to approximate the employer's share of FICA taxes that W-2 employees don't pay directly." },
+          { question: "Can I deduct self-employment tax?", answer: "Yes! You can deduct 50% of your self-employment tax as an adjustment to income on your tax return, which lowers your federal taxable income." },
+          { question: "How does SE tax compare to W-2 FICA taxes?", answer: "W-2 employees pay 7.65% (half of FICA), with employers paying the other half. Self-employed individuals pay the full 15.3% but can deduct half." },
+          { question: "Is there a cap on Social Security tax?", answer: "Yes, Social Security tax (12.4%) only applies to the first $176,100 of net self-employment earnings in 2026. Medicare tax (2.9%) has no cap." }
+        ])
       ]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">

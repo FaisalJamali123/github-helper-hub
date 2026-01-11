@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema, generateProductSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, softwareApplicationSchema, generateProductSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 import ReceiptScanner from "@/components/shared/ReceiptScanner";
 import InfoTooltip from "@/components/shared/InfoTooltip";
 import TaxBreakdownChart from "@/components/calculator/TaxBreakdownChart";
@@ -280,7 +280,14 @@ const Calculator1099 = () => {
           name: "1099 Tax Calculator",
           description: "Free 1099 tax calculator for freelancers. Calculate federal, state, and self-employment tax with advanced deductions. Updated for 2026.",
           url: "https://moneygrowtools.com/calculator/1099"
-        })
+        }),
+        generateFAQPageSchema([
+          { question: "How much tax do I owe on 1099 income?", answer: "1099 contractors pay 15.3% self-employment tax plus 10-37% federal income tax plus 0-13.3% state income tax. Total can range from 25-45% depending on your income level and state." },
+          { question: "Can I deduct business expenses from 1099 income?", answer: "Yes! Common deductible expenses include home office ($5/sq ft up to $1,500), vehicle mileage ($0.70/mile), software, phone/internet, health insurance premiums, and retirement contributions." },
+          { question: "What is the self-employment tax rate?", answer: "The self-employment tax rate is 15.3%: 12.4% for Social Security (capped at $176,100) and 2.9% for Medicare (no cap). High earners pay an additional 0.9% Medicare surtax." },
+          { question: "Do I need to pay quarterly taxes?", answer: "Yes, if you expect to owe $1,000 or more. Quarterly payments are due April 15, June 16, September 15, and January 15. Missing payments results in ~8% annual penalty." },
+          { question: "Which states have no income tax?", answer: "Nine states have no income tax: Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, Wyoming, and New Hampshire (dividends/interest only)." }
+        ])
       ]} />
 
       <main className="py-8 sm:py-12 bg-background min-h-screen">

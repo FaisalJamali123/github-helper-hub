@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
-import StructuredData, { generateBreadcrumbSchema } from "@/components/shared/StructuredData";
+import StructuredData, { generateBreadcrumbSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -217,6 +217,14 @@ const Best1099TaxSoftware = () => {
   ];
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
 
+  const faqSchema = generateFAQPageSchema([
+    { question: "What is the best tax software for 1099 contractors?", answer: "TurboTax Self-Employed is our top pick for most freelancers due to its comprehensive deduction finder and excellent user experience. Keeper Tax is best for gig workers with AI-powered expense tracking, and FreeTaxUSA is the best free option." },
+    { question: "Can I file 1099 taxes for free?", answer: "Yes! FreeTaxUSA offers free federal filing for 1099 income (state filing is $14.99). You'll need to manually enter data as it doesn't have auto-import, but it handles Schedule C and self-employment tax correctly." },
+    { question: "Do I need special tax software for 1099 income?", answer: "While you can use basic tax software, self-employed versions are recommended because they include Schedule C for business income/expenses, self-employment tax calculation, quarterly payment reminders, and deduction finders for freelancer-specific write-offs." },
+    { question: "What features should I look for in 1099 tax software?", answer: "Key features include: automatic 1099 import, expense tracking and categorization, mileage tracking, quarterly tax reminders, audit defense, state filing support, and mobile app access for year-round tracking." },
+    { question: "How much does 1099 tax software cost?", answer: "Prices range from free (FreeTaxUSA) to $192/year (Keeper Tax subscription). Most one-time filing options cost $65-$130 for federal, with state filing typically $30-$50 extra." }
+  ]);
+
   const comparisonSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -247,7 +255,7 @@ const Best1099TaxSoftware = () => {
         canonicalUrl="https://moneygrowtools.com/best-1099-tax-software"
         keywords={["best 1099 tax software", "freelancer tax software", "self-employed tax software", "1099 tax filing", "independent contractor taxes"]}
       />
-      <StructuredData schemas={[breadcrumbSchema, comparisonSchema]} />
+      <StructuredData schemas={[breadcrumbSchema, comparisonSchema, faqSchema]} />
 
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -283,6 +291,22 @@ const Best1099TaxSoftware = () => {
                   <div className="text-2xl font-bold text-primary">4.4+</div>
                   <div className="text-sm text-muted-foreground">Avg Rating</div>
                 </div>
+              </div>
+
+              {/* Calculator CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
+                  <Link to="/calculator/1099">
+                    <Calculator className="w-5 h-5 mr-2" />
+                    Free 1099 Tax Calculator
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/calculator/quarterly">
+                    <DollarSign className="w-5 h-5 mr-2" />
+                    Quarterly Payment Calculator
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
