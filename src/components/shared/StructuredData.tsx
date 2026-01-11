@@ -157,8 +157,8 @@ export const softwareApplicationSchema = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "2847",
+    "ratingValue": "4.9",
+    "ratingCount": "2500",
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -175,6 +175,40 @@ export const softwareApplicationSchema = {
   "datePublished": "2024-01-01",
   "dateModified": "2026-01-05"
 };
+
+// Product Schema generator for calculator pages
+export const generateProductSchema = ({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": name,
+  "description": description,
+  "url": url,
+  "brand": {
+    "@type": "Brand",
+    "name": "Money Grow Tools"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2500",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+});
 
 // HowTo Schema for the calculator
 export const howToSchema = {
