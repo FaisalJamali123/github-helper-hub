@@ -429,7 +429,7 @@ const Calculator1099C = () => {
   return (
     <Layout>
       <SEOHead
-        title="1099-C Debt Forgiveness Tax Calculator 2025 | Insolvency Exclusion"
+        title="1099-C Debt Forgiveness Tax Calculator 2026 | Insolvency Exclusion"
         description="Free 1099-C calculator to determine if your canceled debt is taxable. Calculate insolvency exclusion, estimate tax liability, and get Form 982 guidance."
         canonicalUrl="https://moneygrowtools.com/calculator/1099-c"
         keywords={[
@@ -452,7 +452,7 @@ const Calculator1099C = () => {
             <div className="max-w-4xl mx-auto text-center">
               <Badge className="mb-4 bg-warning/10 text-warning border-warning/20">
                 <FileText className="w-3 h-3 mr-1" />
-                Updated for 2025 Tax Year
+                Updated for 2026 Tax Year
               </Badge>
               <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
                 1099-C Debt Forgiveness

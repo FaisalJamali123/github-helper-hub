@@ -23,10 +23,10 @@ const BlogHowMuchToSetAside = () => {
   ];
 
   const articleSchema = generateArticleSchema({
-    headline: "How Much to Set Aside for 1099 Taxes in 2025",
+    headline: "How Much to Set Aside for 1099 Taxes in 2026",
     description: "Learn the exact percentage of income freelancers should save for taxes based on income level, state, and filing status.",
     datePublished: "2025-01-01",
-    dateModified: "2025-01-01",
+    dateModified: "2026-01-12",
     url: "https://moneygrowtools.com/blog/how-much-to-set-aside",
   });
 
@@ -35,13 +35,13 @@ const BlogHowMuchToSetAside = () => {
     { question: "Why do I need to save more than 15.3% for self-employment tax?", answer: "The 15.3% is only the self-employment tax (Social Security + Medicare). You also owe federal income tax (10-37%) and potentially state income tax (0-13.3%), which can bring your total tax burden to 25-45%." },
     { question: "Should I open a separate bank account for tax savings?", answer: "Yes! The most effective strategy is to open a separate high-yield savings account specifically for tax money. Transfer your savings percentage immediately when you receive each payment." },
     { question: "Do business deductions lower my tax savings rate?", answer: "Yes. Every dollar you spend on legitimate business expenses reduces your taxable income. If your business expenses are 20% of gross income, you can potentially lower your savings rate by 4-5 percentage points." },
-    { question: "When are quarterly tax payments due?", answer: "For 2025: Q1 is April 15, Q2 is June 16, Q3 is September 15, and Q4 is January 15, 2026. Missing these deadlines results in IRS penalties of approximately 8% annually." }
+    { question: "When are quarterly tax payments due?", answer: "For 2026: Q1 is April 15, Q2 is June 15, Q3 is September 15, and Q4 is January 15, 2027. Missing these deadlines results in IRS penalties of approximately 8% annually." }
   ]);
 
   return (
     <Layout>
       <SEOHead
-        title="How Much to Set Aside for 1099 Taxes in 2025 | Tax Savings Guide"
+        title="How Much to Set Aside for 1099 Taxes in 2026 | Tax Savings Guide"
         description="Learn exactly how much to save for 1099 taxes. Most freelancers should set aside 25-30% of every payment. Use our interactive slider to calculate your savings."
         canonicalUrl="https://moneygrowtools.com/blog/how-much-to-set-aside"
         ogType="article"
@@ -75,7 +75,7 @@ const BlogHowMuchToSetAside = () => {
               The simple answer: <strong className="text-foreground">25-30% of every payment</strong>. But your exact rate depends on your income level, state, and filing status.
             </p>
             <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
-              <span>Updated: January 2025</span>
+              <span>Updated: January 2026</span>
               <span>•</span>
               <span>5 min read</span>
             </div>

@@ -16,10 +16,10 @@ const EmailCaptureModal = ({ trigger }: EmailCaptureModalProps) => {
 
   const generateICSContent = () => {
     const events = [
-      { date: "20250415", title: "Q1 2025 Quarterly Tax Due", desc: "Pay estimated taxes for Jan-Mar 2025" },
-      { date: "20250616", title: "Q2 2025 Quarterly Tax Due", desc: "Pay estimated taxes for Apr-May 2025" },
-      { date: "20250915", title: "Q3 2025 Quarterly Tax Due", desc: "Pay estimated taxes for Jun-Aug 2025" },
-      { date: "20260115", title: "Q4 2025 Quarterly Tax Due", desc: "Pay estimated taxes for Sep-Dec 2025" },
+      { date: "20260415", title: "Q1 2026 Quarterly Tax Due", desc: "Pay estimated taxes for Jan-Mar 2026" },
+      { date: "20260615", title: "Q2 2026 Quarterly Tax Due", desc: "Pay estimated taxes for Apr-May 2026" },
+      { date: "20260915", title: "Q3 2026 Quarterly Tax Due", desc: "Pay estimated taxes for Jun-Aug 2026" },
+      { date: "20270115", title: "Q4 2026 Quarterly Tax Due", desc: "Pay estimated taxes for Sep-Dec 2026" },
     ];
 
     let icsContent = `BEGIN:VCALENDAR
@@ -27,7 +27,7 @@ VERSION:2.0
 PRODID:-//MoneyGrowTools//Quarterly Tax Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:2025 Quarterly Tax Deadlines
+X-WR-CALNAME:2026 Quarterly Tax Deadlines
 `;
 
     events.forEach((event, index) => {
@@ -71,7 +71,7 @@ END:VEVENT
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "2025-quarterly-tax-deadlines.ics";
+    link.download = "2026-quarterly-tax-deadlines.ics";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -96,20 +96,20 @@ END:VEVENT
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-xl">
             <Calendar className="w-5 h-5 text-primary" />
-            2025 Quarterly Tax Calendar
+            2026 Quarterly Tax Calendar
           </DialogTitle>
         </DialogHeader>
 
         {!isSubmitted ? (
           <div className="space-y-4">
             <p className="text-muted-foreground text-sm">
-              Never miss a quarterly tax deadline again. Get an .ics calendar file with all 2025 due dates and automatic reminders.
+              Never miss a quarterly tax deadline again. Get an .ics calendar file with all 2026 due dates and automatic reminders.
             </p>
 
             <div className="bg-muted/50 rounded-lg p-4 space-y-2">
               <div className="flex items-center gap-2 text-sm">
                 <CheckCircle className="w-4 h-4 text-primary" />
-                <span>All 4 quarterly deadlines for 2025</span>
+                <span>All 4 quarterly deadlines for 2026</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <CheckCircle className="w-4 h-4 text-primary" />

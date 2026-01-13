@@ -279,7 +279,7 @@ const Best1099TaxSoftware = () => {
   return (
     <Layout>
       <SEOHead
-        title="Best 1099 Tax Software 2025 | Top 5 Compared for Freelancers"
+        title="Best 1099 Tax Software 2026 | Top 5 Compared for Freelancers"
         description="Compare the best tax software for 1099 contractors. Side-by-side features, pricing, and pros/cons of TurboTax, Keeper, TaxAct, and more."
         canonicalUrl="https://moneygrowtools.com/best-1099-tax-software"
         keywords={["best 1099 tax software", "freelancer tax software", "self-employed tax software", "1099 tax filing", "independent contractor taxes"]}
@@ -292,7 +292,7 @@ const Best1099TaxSoftware = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <Badge className="mb-4 bg-accent text-accent-foreground">
-                Updated for 2025 Tax Year
+                Updated for 2026 Tax Year
               </Badge>
               <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
                 Best 1099 Tax Software for Freelancers

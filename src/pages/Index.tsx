@@ -36,12 +36,12 @@ const Index = () => {
   return (
     <Layout>
       <SEOHead
-        title="Free 1099 Tax Calculator 2025 & 2026 | Freelancer Tax Estimator"
-        description="Free 1099 tax calculator for freelancers. Calculate federal, state & 15.3% self-employment tax instantly. Updated for 2025 filing and 2026 tax planning."
+        title="Free 1099 Tax Calculator 2026 | Freelancer Tax Estimator"
+        description="Free 1099 tax calculator for freelancers. Calculate federal, state & 15.3% self-employment tax instantly. Updated for 2026 tax planning and filing."
         canonicalUrl="https://moneygrowtools.com/"
         keywords={[
           "1099 tax calculator",
-          "1099 tax calculator 2025",
+          "1099 tax calculator 2026",
           "1099 tax calculator 2026",
           "self-employment tax calculator",
           "quarterly tax calculator",

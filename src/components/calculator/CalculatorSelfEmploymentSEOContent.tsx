@@ -134,7 +134,7 @@ const CalculatorSelfEmploymentSEOContent = () => {
           <div className="flex items-center gap-2 mb-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-info/10 text-info text-xs font-semibold uppercase tracking-wider animate-pulse">
               <Sparkles className="w-3.5 h-3.5" />
-              Free Tool • 2025 Updated
+              Free Tool • 2026 Updated
             </span>
           </div>
 
@@ -149,7 +149,7 @@ const CalculatorSelfEmploymentSEOContent = () => {
             Use our <strong className="text-foreground">free self-employment tax calculator</strong> to quickly estimate your 
             self-employment taxes based on your net earnings. Input your self-employment income, deductions, filing status, 
             and state to get a detailed breakdown of Social Security, Medicare, federal income tax, and any state taxes — 
-            all updated for the <strong className="text-foreground">2025 tax year</strong>. No sign-up needed, just accurate 
+            all updated for the <strong className="text-foreground">2026 tax year</strong>. No sign-up needed, just accurate 
             results in moments to help you plan ahead based on{" "}
             <a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center gap-1">
               IRS guidelines <ExternalLink className="w-3 h-3" />
@@ -157,7 +157,7 @@ const CalculatorSelfEmploymentSEOContent = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-8">
-            {["No sign-up needed", "Instant results", "2025 rates"].map(
+            {["No sign-up needed", "Instant results", "2026 rates"].map(
               (tag, index) => (
                 <span
                   key={tag}
@@ -699,7 +699,7 @@ const CalculatorSelfEmploymentSEOContent = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-2">Important Tax Disclaimer</h4>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              This self-employment tax calculator provides estimates based on 2025 rates and is for informational purposes only. 
+              This self-employment tax calculator provides estimates based on 2026 rates and is for informational purposes only. 
               It doesn't constitute tax advice, guarantee accuracy, or cover all scenarios like credits or special deductions. 
               Consult a tax professional or CPA for personalized guidance, as tax laws can change. Visit the{" "}
               <a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center gap-1">

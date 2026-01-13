@@ -73,7 +73,7 @@ const CalculatorSelfEmployment = () => {
   return (
     <Layout>
       <SEOHead
-        title="Self-Employment Tax Calculator 2025 | 15.3% SE Tax Breakdown"
+        title="Self-Employment Tax Calculator 2026 | 15.3% SE Tax Breakdown"
         description="Calculate your self-employment tax (15.3%) with our free calculator. See Social Security and Medicare breakdown, understand the 92.35% rule, and compare to W-2 taxes."
         canonicalUrl="https://moneygrowtools.com/calculator/self-employment"
         keywords={["self-employment tax calculator", "15.3% SE tax", "Social Security Medicare tax", "1099 vs W-2 tax"]}

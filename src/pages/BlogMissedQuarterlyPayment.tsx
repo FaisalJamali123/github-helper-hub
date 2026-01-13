@@ -74,7 +74,7 @@ const BlogMissedQuarterlyPayment = () => {
   return (
     <Layout>
       <SEOHead
-        title="What Happens If You Miss a Quarterly Tax Payment | IRS Penalties 2025"
+        title="What Happens If You Miss a Quarterly Tax Payment | IRS Penalties 2026"
         description="Missed a quarterly estimated tax payment? Learn about IRS penalties (approximately 8% annually), how to calculate what you owe, and strategies to minimize damage."
         canonicalUrl="https://moneygrowtools.com/blog/missed-quarterly-payment"
         ogType="article"
@@ -109,7 +109,7 @@ const BlogMissedQuarterlyPayment = () => {
               Here's exactly what you owe and how to minimize the damage.
             </p>
             <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
-              <span>Updated: January 2025</span>
+              <span>Updated: January 2026</span>
               <span>•</span>
               <span>4 min read</span>
             </div>

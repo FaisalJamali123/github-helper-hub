@@ -239,7 +239,7 @@ const ToolsSection = () => {
         {/* Trust signals */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground text-sm">
-            ✓ Updated for 2025 tax year • ✓ Based on official IRS tax rates and state tax brackets
+            ✓ Updated for 2026 tax year • ✓ Based on official IRS tax rates and state tax brackets
           </p>
         </div>
       </div>
