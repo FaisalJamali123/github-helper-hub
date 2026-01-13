@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 import {
   calculate1099TaxAdvanced,
   stateTaxRates,
-  TAX_CONSTANTS_2025,
+  TAX_CONSTANTS_2026,
   formatCurrency,
   formatPercent,
   FIELD_TOOLTIPS,

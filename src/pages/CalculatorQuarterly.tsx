@@ -10,7 +10,7 @@ import CalculatorQuarterlySEOContent from "@/components/calculator/CalculatorQua
 import StructuredData, { generateBreadcrumbSchema, generateProductSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
 import {
   calculate1099Tax,
-  TAX_CONSTANTS_2025,
+  TAX_CONSTANTS_2026,
   calculateQuarterlyPenalty,
   formatCurrency,
   formatPercent,
@@ -27,13 +27,13 @@ const CalculatorQuarterly = () => {
   // Get next deadline
   const nextDeadline = useMemo(() => {
     const today = new Date();
-    for (const deadline of TAX_CONSTANTS_2025.QUARTERLY_DEADLINES) {
+    for (const deadline of TAX_CONSTANTS_2026.QUARTERLY_DEADLINES) {
       const dueDate = new Date(deadline.dueDate);
       if (dueDate > today) {
         return deadline;
       }
     }
-    return TAX_CONSTANTS_2025.QUARTERLY_DEADLINES[0];
+    return TAX_CONSTANTS_2026.QUARTERLY_DEADLINES[0];
   }, []);
 
   // Countdown timer
@@ -102,7 +102,7 @@ const CalculatorQuarterly = () => {
 
   // Generate ICS file for calendar
   const downloadCalendar = () => {
-    const events = TAX_CONSTANTS_2025.QUARTERLY_DEADLINES.map((deadline) => {
+    const events = TAX_CONSTANTS_2026.QUARTERLY_DEADLINES.map((deadline) => {
       const date = new Date(deadline.dueDate);
       const dateStr = date.toISOString().split("T")[0].replace(/-/g, "");
       
@@ -324,7 +324,7 @@ END:VCALENDAR`;
                     <h2 className="font-heading font-semibold text-lg text-foreground mb-4">2026 Payment Schedule</h2>
                     
                     <div className="space-y-3">
-                      {TAX_CONSTANTS_2025.QUARTERLY_DEADLINES.map((deadline) => {
+                      {TAX_CONSTANTS_2026.QUARTERLY_DEADLINES.map((deadline) => {
                         const isPast = new Date(deadline.dueDate) < new Date();
                         const isNext = deadline.quarter === nextDeadline.quarter;
                         

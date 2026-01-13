@@ -76,7 +76,7 @@ export const stateTaxRates: Record<string, { rate: number; name: string; bracket
 };
 
 // 2026 Federal Income Tax Brackets (Single Filer)
-export const federalTaxBrackets2025 = [
+export const federalTaxBrackets2026 = [
   { min: 0, max: 11925, rate: 10 },
   { min: 11925, max: 48475, rate: 12 },
   { min: 48475, max: 103350, rate: 22 },
@@ -87,7 +87,7 @@ export const federalTaxBrackets2025 = [
 ];
 
 // 2026 Federal Income Tax Brackets (Married Filing Jointly)
-export const federalTaxBracketsMFJ2025 = [
+export const federalTaxBracketsMFJ2026 = [
   { min: 0, max: 23850, rate: 10 },
   { min: 23850, max: 96950, rate: 12 },
   { min: 96950, max: 206700, rate: 22 },
@@ -98,7 +98,7 @@ export const federalTaxBracketsMFJ2025 = [
 ];
 
 // 2026 Federal Income Tax Brackets (Head of Household)
-export const federalTaxBracketsHOH2025 = [
+export const federalTaxBracketsHOH2026 = [
   { min: 0, max: 17000, rate: 10 },
   { min: 17000, max: 64850, rate: 12 },
   { min: 64850, max: 103350, rate: 22 },
@@ -109,7 +109,7 @@ export const federalTaxBracketsHOH2025 = [
 ];
 
 // 2026 Tax Constants
-export const TAX_CONSTANTS_2025 = {
+export const TAX_CONSTANTS_2026 = {
   // Self-Employment Tax
   SE_TAX_RATE: 15.3,
   SOCIAL_SECURITY_RATE: 12.4,
@@ -201,11 +201,11 @@ export const calculateFederalTaxWithBreakdown = (
 ): { total: number; brackets: BracketBreakdown[] } => {
   let brackets;
   if (filingStatus === "mfj") {
-    brackets = federalTaxBracketsMFJ2025;
+    brackets = federalTaxBracketsMFJ2026;
   } else if (filingStatus === "hoh") {
-    brackets = federalTaxBracketsHOH2025;
+    brackets = federalTaxBracketsHOH2026;
   } else {
-    brackets = federalTaxBrackets2025;
+    brackets = federalTaxBrackets2026;
   }
   
   let tax = 0;
@@ -266,7 +266,7 @@ export const calculateStateTax = (taxableIncome: number, stateCode: string): num
 };
 
 // Calculate Self-Employment Tax
-export const calculateSelfEmploymentTax = (netEarnings: number, additionalMedicareThreshold: number = TAX_CONSTANTS_2025.ADDITIONAL_MEDICARE_THRESHOLD_SINGLE): {
+export const calculateSelfEmploymentTax = (netEarnings: number, additionalMedicareThreshold: number = TAX_CONSTANTS_2026.ADDITIONAL_MEDICARE_THRESHOLD_SINGLE): {
   totalSETax: number;
   socialSecurityTax: number;
   medicareTax: number;
@@ -281,7 +281,7 @@ export const calculateSelfEmploymentTax = (netEarnings: number, additionalMedica
     ADDITIONAL_MEDICARE_RATE,
     SOCIAL_SECURITY_WAGE_BASE,
     SE_TAX_DEDUCTION
-  } = TAX_CONSTANTS_2025;
+  } = TAX_CONSTANTS_2026;
 
   const taxableEarnings = netEarnings * SE_DEDUCTION_FACTOR;
   const socialSecurityTaxable = Math.min(taxableEarnings, SOCIAL_SECURITY_WAGE_BASE);
@@ -319,15 +319,15 @@ export const calculateTaxCredits = (
   educationCredit: number;
   totalCredits: number;
 } => {
-  const childTaxCredit = dependentsUnder17 * TAX_CONSTANTS_2025.CHILD_TAX_CREDIT;
-  const otherDependentCredit = dependentsOver17 * TAX_CONSTANTS_2025.OTHER_DEPENDENT_CREDIT;
+  const childTaxCredit = dependentsUnder17 * TAX_CONSTANTS_2026.CHILD_TAX_CREDIT;
+  const otherDependentCredit = dependentsOver17 * TAX_CONSTANTS_2026.OTHER_DEPENDENT_CREDIT;
   
   // American Opportunity Credit (simplified - 100% of first $2000, 25% of next $2000)
   let educationCredit = 0;
   if (studentTuition > 0) {
     const firstTier = Math.min(studentTuition, 2000);
     const secondTier = Math.min(Math.max(studentTuition - 2000, 0), 2000) * 0.25;
-    educationCredit = Math.min(firstTier + secondTier, TAX_CONSTANTS_2025.AOTC_MAX);
+    educationCredit = Math.min(firstTier + secondTier, TAX_CONSTANTS_2026.AOTC_MAX);
   }
   
   return {
@@ -407,7 +407,7 @@ export const calculate1099TaxAdvanced = (
   } = advanced;
 
   // Mileage deduction
-  const mileageDeduction = workMileage * TAX_CONSTANTS_2025.MILEAGE_RATE;
+  const mileageDeduction = workMileage * TAX_CONSTANTS_2026.MILEAGE_RATE;
   
   // Home office deduction (simplified method: $5/sq ft, max 300 sq ft)
   const homeOfficeDeduction = Math.min(homeOfficeSquareFeet * 5, 1500);
@@ -428,14 +428,14 @@ export const calculate1099TaxAdvanced = (
   
   // Medicare threshold based on filing status
   const medicareThreshold = filingStatus === "mfj" 
-    ? TAX_CONSTANTS_2025.ADDITIONAL_MEDICARE_THRESHOLD_MFJ 
-    : TAX_CONSTANTS_2025.ADDITIONAL_MEDICARE_THRESHOLD_SINGLE;
+    ? TAX_CONSTANTS_2026.ADDITIONAL_MEDICARE_THRESHOLD_MFJ 
+    : TAX_CONSTANTS_2026.ADDITIONAL_MEDICARE_THRESHOLD_SINGLE;
   
   // Calculate SE Tax
   const seResult = calculateSelfEmploymentTax(Math.max(0, netEarnings), medicareThreshold);
   
   // IRA deduction (capped at limit)
-  const iraLimit = TAX_CONSTANTS_2025.IRA_LIMIT;
+  const iraLimit = TAX_CONSTANTS_2026.IRA_LIMIT;
   const iraDeduction = Math.min(iraContributions, iraLimit);
   
   // Calculate AGI
@@ -445,13 +445,13 @@ export const calculate1099TaxAdvanced = (
   
   // Standard deduction
   const standardDeduction = filingStatus === "mfj" 
-    ? TAX_CONSTANTS_2025.STANDARD_DEDUCTION_MFJ 
+    ? TAX_CONSTANTS_2026.STANDARD_DEDUCTION_MFJ 
     : filingStatus === "hoh"
-    ? TAX_CONSTANTS_2025.STANDARD_DEDUCTION_HOH
-    : TAX_CONSTANTS_2025.STANDARD_DEDUCTION_SINGLE;
+    ? TAX_CONSTANTS_2026.STANDARD_DEDUCTION_HOH
+    : TAX_CONSTANTS_2026.STANDARD_DEDUCTION_SINGLE;
   
   // Itemized deductions (mortgage interest + state/local taxes up to SALT cap)
-  const stateLocalTaxes = Math.min(calculateStateTax(adjustedGrossIncome - standardDeduction, stateCode), TAX_CONSTANTS_2025.SALT_CAP);
+  const stateLocalTaxes = Math.min(calculateStateTax(adjustedGrossIncome - standardDeduction, stateCode), TAX_CONSTANTS_2026.SALT_CAP);
   const itemizedDeductions = mortgageInterest + stateLocalTaxes;
   
   // Use higher of standard or itemized
@@ -564,22 +564,22 @@ export const calculateQuarterlyPenalty = (
   amountOwed: number,
   daysMissed: number
 ): number => {
-  const dailyRate = TAX_CONSTANTS_2025.UNDERPAYMENT_PENALTY_RATE / 365;
+  const dailyRate = TAX_CONSTANTS_2026.UNDERPAYMENT_PENALTY_RATE / 365;
   return amountOwed * dailyRate * daysMissed;
 };
 
 // Get next quarterly deadline
-export const getNextQuarterlyDeadline = (): typeof TAX_CONSTANTS_2025.QUARTERLY_DEADLINES[0] | null => {
+export const getNextQuarterlyDeadline = (): typeof TAX_CONSTANTS_2026.QUARTERLY_DEADLINES[0] | null => {
   const today = new Date();
   
-  for (const deadline of TAX_CONSTANTS_2025.QUARTERLY_DEADLINES) {
+  for (const deadline of TAX_CONSTANTS_2026.QUARTERLY_DEADLINES) {
     const dueDate = new Date(deadline.dueDate);
     if (dueDate > today) {
       return deadline;
     }
   }
   
-  return TAX_CONSTANTS_2025.QUARTERLY_DEADLINES[0];
+  return TAX_CONSTANTS_2026.QUARTERLY_DEADLINES[0];
 };
 
 // Format currency
@@ -602,10 +602,10 @@ export const FIELD_TOOLTIPS = {
   grossIncome: "Your total 1099 income before any deductions. Include all freelance, consulting, and self-employment income reported on 1099-NEC or 1099-MISC forms.",
   businessExpenses: "Ordinary and necessary expenses for your business. Includes office supplies, software subscriptions, advertising, professional services, and more.",
   w2Income: "Income from traditional employment where taxes are withheld. Enter the gross wages from Box 1 of your W-2.",
-  workMileage: "Business miles driven for work (not commuting). The 2025 IRS rate is $0.70 per mile. Keep a mileage log for documentation.",
+  workMileage: "Business miles driven for work (not commuting). The 2026 IRS rate is $0.70 per mile. Keep a mileage log for documentation.",
   mortgageInterest: "Interest paid on your mortgage for your primary residence. Found on Form 1098 from your lender. Can help if you itemize deductions.",
   studentTuition: "Tuition and required fees for higher education. May qualify for the American Opportunity Credit (up to $2,500) or Lifetime Learning Credit.",
-  iraContributions: "Contributions to a Traditional IRA are tax-deductible (up to $7,000 for 2025, $8,000 if 50+). Roth IRA contributions are not deductible.",
+  iraContributions: "Contributions to a Traditional IRA are tax-deductible (up to $7,000 for 2026, $8,000 if 50+). Roth IRA contributions are not deductible.",
   quarterlyPayments: "Estimated tax payments already made to the IRS this year. Enter the total of all 1040-ES payments made.",
   w2TaxesWithheld: "Federal taxes withheld from your W-2 wages. Found in Box 2 of your W-2. This reduces your tax owed or increases your refund.",
   dependentsUnder17: "Children under 17 at year-end who qualify for the Child Tax Credit ($2,000 per child). Must have a valid Social Security number.",

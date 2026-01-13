@@ -11,7 +11,7 @@ import StructuredData, { generateBreadcrumbSchema, generateProductSchema, genera
 
 import {
   calculateSelfEmploymentTax,
-  TAX_CONSTANTS_2025,
+  TAX_CONSTANTS_2026,
   formatCurrency,
   formatPercent,
 } from "@/lib/taxCalculations";
@@ -35,10 +35,10 @@ const CalculatorSelfEmployment = () => {
     if (salary <= 0) return null;
 
     // W-2 employee pays half of FICA
-    const w2SocialSecurity = Math.min(salary, TAX_CONSTANTS_2025.SOCIAL_SECURITY_WAGE_BASE) * 0.062;
+    const w2SocialSecurity = Math.min(salary, TAX_CONSTANTS_2026.SOCIAL_SECURITY_WAGE_BASE) * 0.062;
     const w2Medicare = salary * 0.0145;
-    const w2AdditionalMedicare = salary > TAX_CONSTANTS_2025.ADDITIONAL_MEDICARE_THRESHOLD_SINGLE 
-      ? (salary - TAX_CONSTANTS_2025.ADDITIONAL_MEDICARE_THRESHOLD_SINGLE) * 0.009 
+    const w2AdditionalMedicare = salary > TAX_CONSTANTS_2026.ADDITIONAL_MEDICARE_THRESHOLD_SINGLE 
+      ? (salary - TAX_CONSTANTS_2026.ADDITIONAL_MEDICARE_THRESHOLD_SINGLE) * 0.009 
       : 0;
     const w2TotalFICA = w2SocialSecurity + w2Medicare + w2AdditionalMedicare;
 
@@ -57,7 +57,7 @@ const CalculatorSelfEmployment = () => {
       w2TotalFICA: w2TotalFICA + employerFICA,
       selfEmployedFICA: seTax,
       difference: extraCost,
-      equivalentSalary: earnings / (1 + TAX_CONSTANTS_2025.SE_TAX_RATE / 100 / 2), // What W-2 salary = same take-home
+      equivalentSalary: earnings / (1 + TAX_CONSTANTS_2026.SE_TAX_RATE / 100 / 2), // What W-2 salary = same take-home
     };
   }, [netEarnings, w2Salary, seResults]);
 
@@ -236,7 +236,7 @@ const CalculatorSelfEmployment = () => {
                         <div>
                           <p className="font-medium text-foreground">Social Security (12.4%)</p>
                           <p className="text-xs text-muted-foreground">
-                            Capped at ${TAX_CONSTANTS_2025.SOCIAL_SECURITY_WAGE_BASE.toLocaleString()}
+                            Capped at ${TAX_CONSTANTS_2026.SOCIAL_SECURITY_WAGE_BASE.toLocaleString()}
                           </p>
                         </div>
                         <span className="font-semibold text-foreground">{formatCurrency(seResults.socialSecurityTax)}</span>

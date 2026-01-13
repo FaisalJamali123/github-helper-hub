@@ -66,13 +66,13 @@ const faqs: FAQItem[] = [
   {
     question: "Does the calculator include the wage base limit?",
     answer:
-      "Yes — it caps Social Security at $176,100 for 2025. Earnings above this threshold are only subject to Medicare tax.",
+      "Yes — it caps Social Security at $176,100 for 2026. Earnings above this threshold are only subject to Medicare tax.",
   },
 ];
 
 const deductions = [
   { text: "Home office (based on square footage or simplified method)", icon: Home },
-  { text: "Business mileage (67 cents per mile in 2025) or vehicle expenses", icon: Car },
+  { text: "Business mileage (70 cents per mile in 2026) or vehicle expenses", icon: Car },
   { text: "Supplies, equipment, and office materials", icon: Receipt },
   { text: "Internet, phone, and utilities (business portion)", icon: Building },
   { text: "Advertising, marketing, and website costs", icon: TrendingUp },
@@ -199,7 +199,7 @@ const CalculatorSelfEmploymentSEOContent = () => {
             </p>
             <p>
               Unlike regular income tax, self-employment tax is calculated on your net profit after deductions. 
-              The tool applies the current rates — <strong className="text-foreground">15.3% total for 2025</strong> — 
+              The tool applies the current rates — <strong className="text-foreground">15.3% total for 2026</strong> — 
               and factors in income tax brackets, deductions, and state variations to provide an estimate of your 
               total liability. It also shows how much of the tax is deductible, reducing your overall bill.
             </p>
@@ -429,7 +429,7 @@ const CalculatorSelfEmploymentSEOContent = () => {
           </div>
 
           <p className="text-muted-foreground mb-6">
-            The self-employment tax rate for 2025 is <strong className="text-foreground">15.3%</strong> on net earnings. 
+            The self-employment tax rate for 2026 is <strong className="text-foreground">15.3%</strong> on net earnings. 
             This breaks down into:
           </p>
 
@@ -441,7 +441,7 @@ const CalculatorSelfEmploymentSEOContent = () => {
               </h4>
               <p className="text-muted-foreground text-sm">
                 <strong className="text-foreground">12.4%</strong> on net earnings up to the wage base of{" "}
-                <strong className="text-foreground">$176,100</strong> in 2025. Earnings above this are exempt from the 
+                <strong className="text-foreground">$176,100</strong> in 2026. Earnings above this are exempt from the 
                 Social Security part.
               </p>
             </div>
@@ -483,7 +483,7 @@ const CalculatorSelfEmploymentSEOContent = () => {
 
           <p className="text-muted-foreground mb-4">
             In addition to self-employment tax, you'll pay federal income tax on your net business income. 
-            Rates are progressive for 2025 (single filer example):
+            Rates are progressive for 2026 (single filer example):
           </p>
 
           <div className="space-y-2">
@@ -565,15 +565,15 @@ const CalculatorSelfEmploymentSEOContent = () => {
 
           <p className="text-muted-foreground mb-4">
             Self-employed individuals must pay estimated taxes quarterly if expecting to owe{" "}
-            <strong className="text-foreground">$1,000 or more</strong> annually. For 2025:
+            <strong className="text-foreground">$1,000 or more</strong> annually. For 2026:
           </p>
 
           <div className="space-y-3">
             {[
-              { quarter: "Q1", date: "April 15, 2025", period: "Jan–March" },
-              { quarter: "Q2", date: "June 16, 2025", period: "April–May" },
-              { quarter: "Q3", date: "September 15, 2025", period: "June–August" },
-              { quarter: "Q4", date: "January 15, 2026", period: "Sep–December" },
+              { quarter: "Q1", date: "April 15, 2026", period: "Jan–March" },
+              { quarter: "Q2", date: "June 15, 2026", period: "April–May" },
+              { quarter: "Q3", date: "September 15, 2026", period: "June–August" },
+              { quarter: "Q4", date: "January 15, 2027", period: "Sep–December" },
             ].map((item, index) => (
               <div 
                 key={index} 

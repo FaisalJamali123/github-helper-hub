@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/shared/SEOHead";
 import StructuredData, { generateBreadcrumbSchema, generateArticleSchema, generateFAQPageSchema } from "@/components/shared/StructuredData";
-import { TAX_CONSTANTS_2025, formatCurrency } from "@/lib/taxCalculations";
+import { TAX_CONSTANTS_2026, formatCurrency } from "@/lib/taxCalculations";
 
 const BlogMissedQuarterlyPayment = () => {
   const [amountOwed, setAmountOwed] = useState<string>("5000");
@@ -20,7 +20,7 @@ const BlogMissedQuarterlyPayment = () => {
   useEffect(() => {
     const owed = parseFloat(amountOwed) || 0;
     const days = parseFloat(daysMissed) || 0;
-    const dailyRate = TAX_CONSTANTS_2025.UNDERPAYMENT_PENALTY_RATE / 365;
+    const dailyRate = TAX_CONSTANTS_2026.UNDERPAYMENT_PENALTY_RATE / 365;
     const penalty = owed * dailyRate * days;
     setPenaltyAmount(penalty);
   }, [amountOwed, daysMissed]);
@@ -56,10 +56,10 @@ const BlogMissedQuarterlyPayment = () => {
   ];
 
   const articleSchema = generateArticleSchema({
-    headline: "What Happens If You Miss a Quarterly Tax Payment in 2025",
+    headline: "What Happens If You Miss a Quarterly Tax Payment in 2026",
     description: "Learn about IRS penalties for missed estimated tax payments and how to minimize the damage.",
     datePublished: "2025-01-01",
-    dateModified: "2025-01-01",
+    dateModified: "2026-01-13",
     url: "https://moneygrowtools.com/blog/missed-quarterly-payment",
   });
 
@@ -120,7 +120,7 @@ const BlogMissedQuarterlyPayment = () => {
             <h2 className="font-heading font-semibold text-foreground mb-2">TL;DR</h2>
             <p className="text-muted-foreground">
               If you miss a quarterly payment, the IRS charges a penalty based on the federal short-term rate + 3% 
-              (about <strong>8% annually</strong> in 2025). Penalty is calculated daily from the due date until you pay. 
+              (about <strong>8% annually</strong> in 2026). Penalty is calculated daily from the due date until you pay. 
               A $10,000 underpayment for one quarter could cost <strong>$200+ in penalties</strong>. But there's a 
               <strong className="text-success"> safe harbor</strong> that can protect you.
             </p>
@@ -181,7 +181,7 @@ const BlogMissedQuarterlyPayment = () => {
                   {formatCurrency(displayPenalty)}
                 </p>
                 <p className="text-xs text-muted-foreground mt-2">
-                  Based on ~{(TAX_CONSTANTS_2025.UNDERPAYMENT_PENALTY_RATE * 100).toFixed(0)}% annual rate
+                  Based on ~{(TAX_CONSTANTS_2026.UNDERPAYMENT_PENALTY_RATE * 100).toFixed(0)}% annual rate
                 </p>
               </div>
 
@@ -196,7 +196,7 @@ const BlogMissedQuarterlyPayment = () => {
             <h2>How the IRS Underpayment Penalty Works</h2>
             <p>
               The IRS underpayment penalty is essentially <strong>interest on late taxes</strong>. It's calculated using 
-              the federal short-term rate plus 3 percentage points. As of 2025, this works out to approximately 
+              the federal short-term rate plus 3 percentage points. As of 2026, this works out to approximately 
               <strong> 8% annually</strong>, or about <strong>0.022% per day</strong>.
             </p>
 
@@ -323,7 +323,7 @@ const BlogMissedQuarterlyPayment = () => {
               Never Miss Another Payment
             </h2>
             <p className="text-muted-foreground mb-6">
-              Download our payment calendar with reminders for all 2025 deadlines.
+              Download our payment calendar with reminders for all 2026 deadlines.
             </p>
             <Button asChild size="lg" className="cta-gradient-orange text-accent-foreground">
               <Link to="/calculator/quarterly">
