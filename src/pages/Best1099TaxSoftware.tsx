@@ -225,6 +225,35 @@ const Best1099TaxSoftware = () => {
     { question: "How much does 1099 tax software cost?", answer: "Prices range from free (FreeTaxUSA) to $192/year (Keeper Tax subscription). Most one-time filing options cost $65-$130 for federal, with state filing typically $30-$50 extra." }
   ]);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Best 1099 Tax Software 2025 | Top 5 Compared for Freelancers",
+    "description": "Compare the best tax software for 1099 contractors. Side-by-side features, pricing, and pros/cons of TurboTax, Keeper, TaxAct, and more.",
+    "datePublished": "2024-12-01",
+    "dateModified": "2025-01-10",
+    "author": {
+      "@type": "Person",
+      "name": "Money Grow Tools Editorial Team",
+      "url": "https://moneygrowtools.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Money Grow Tools",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://moneygrowtools.com/logo.png",
+        "width": 512,
+        "height": 512
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://moneygrowtools.com/best-1099-tax-software"
+    },
+    "inLanguage": "en-US"
+  };
+
   const comparisonSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -237,11 +266,11 @@ const Best1099TaxSoftware = () => {
         "@type": "SoftwareApplication",
         "name": software.name,
         "applicationCategory": "FinanceApplication",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": software.rating,
-          "bestRating": "5",
-          "worstRating": "1"
+        "description": software.bestFor,
+        "offers": {
+          "@type": "Offer",
+          "price": software.priceValue.toString(),
+          "priceCurrency": "USD"
         }
       }
     }))
@@ -255,7 +284,7 @@ const Best1099TaxSoftware = () => {
         canonicalUrl="https://moneygrowtools.com/best-1099-tax-software"
         keywords={["best 1099 tax software", "freelancer tax software", "self-employed tax software", "1099 tax filing", "independent contractor taxes"]}
       />
-      <StructuredData schemas={[breadcrumbSchema, comparisonSchema, faqSchema]} />
+      <StructuredData schemas={[breadcrumbSchema, articleSchema, comparisonSchema, faqSchema]} />
 
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
