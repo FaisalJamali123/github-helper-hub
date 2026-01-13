@@ -31,4 +31,5 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git remote add static https://x-access-token:${GH_TOKEN}@github.com/FaisalJamali123/github-helper-hub-static.git
-          git subtree push --prefix dist static main
+          git subtree split --prefix dist -b deploy-temp || true
+          git push static deploy-temp:main --force || true
