@@ -82,7 +82,7 @@ const deductions = [
   { text: "Home office (square footage method or simplified $5/sq ft)", icon: "🏠" },
   { text: "Internet, phone, and utilities (business-use percentage)", icon: "📱" },
   { text: "Software, apps, subscriptions (Adobe, Canva, QuickBooks, etc.)", icon: "💻" },
-  { text: "Mileage (67 cents per mile in 2025) or actual vehicle expenses", icon: "🚗" },
+  { text: "Mileage (70 cents per mile in 2026) or actual vehicle expenses", icon: "🚗" },
   { text: "Supplies, equipment, and tools", icon: "🔧" },
   { text: "Advertising and marketing costs", icon: "📢" },
   { text: "Professional services (bookkeeping, legal, website)", icon: "👔" },
@@ -136,24 +136,24 @@ const Calculator1099SEOContent = () => {
           <div className="flex items-center gap-2 mb-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-semibold uppercase tracking-wider animate-pulse">
               <Sparkles className="w-3.5 h-3.5" />
-              Free Tool • 2025 Updated
+              Free Tool • 2026 Updated
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight">
-            Free 1099 Tax Calculator
+            How to Calculate 1099 Taxes in 2026 [Step-by-Step]
             <span className="block text-xl sm:text-2xl font-normal text-muted-foreground mt-2">
-              Estimate Your Self-Employment Taxes Accurately
+              Freelancer Tax Calculator & Independent Contractor Tax Calculator
             </span>
           </h2>
 
           <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mb-8">
-            Use our <strong className="text-foreground">free 1099 tax calculator</strong> to 
+            Use our <strong className="text-foreground">free 1099 tax calculator 2026</strong> to 
             instantly estimate how much tax you owe on <strong className="text-foreground">1099 income</strong>. 
             Simply enter your total self-employment income, add any business deductions, select your state, 
             and get a clear breakdown of your federal income tax,{" "}
             <Link to="/calculator/self-employment" className="text-primary hover:underline">self-employment tax</Link>, and estimated state tax —
-            updated for the <strong className="text-foreground">2025 tax year</strong> based on{" "}
+            updated for the <strong className="text-foreground">2026 tax year</strong> based on{" "}
             <a href="https://www.irs.gov/individuals/tax-withholding-estimator" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center gap-1">
               IRS guidelines <ExternalLink className="w-3 h-3" />
             </a>.
@@ -423,7 +423,7 @@ const Calculator1099SEOContent = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-background/80 border border-border">
-                <div className="text-sm text-muted-foreground mb-2">Federal Income Tax (2025 – Single)</div>
+                <div className="text-sm text-muted-foreground mb-2">Federal Income Tax (2026 – Single)</div>
                 <div className="space-y-1.5">
                   {taxBrackets.slice(0, showAllBrackets ? taxBrackets.length : 4).map((bracket, i) => (
                     <div key={i} className="flex justify-between text-sm">
@@ -512,14 +512,14 @@ const Calculator1099SEOContent = () => {
             you're generally required to make quarterly estimated tax payments.
           </p>
 
-          <h4 className="font-semibold text-foreground mb-4">Due dates (2025):</h4>
+          <h4 className="font-semibold text-foreground mb-4">2026 quarterly due dates: April 15, June 15, September 15, 2026 &amp; January 15, 2027.</h4>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             {[
-              { date: "April 15", period: "Q1", note: "Jan-Mar income" },
-              { date: "June 15", period: "Q2", note: "Apr-May income" },
-              { date: "September 15", period: "Q3", note: "Jun-Aug income" },
-              { date: "January 15", period: "Q4", note: "Sep-Dec income" },
+              { date: "April 15, 2026", period: "Q1", note: "Jan-Mar income" },
+              { date: "June 15, 2026", period: "Q2", note: "Apr-May income" },
+              { date: "September 15, 2026", period: "Q3", note: "Jun-Aug income" },
+              { date: "January 15, 2027", period: "Q4", note: "Sep-Dec income" },
             ].map((item, index) => (
               <div
                 key={index}
@@ -711,7 +711,7 @@ const Calculator1099SEOContent = () => {
               Important Tax Disclaimer
             </h4>
             <p className="text-muted-foreground leading-relaxed">
-              This 1099 tax calculator provides estimates only based on current 2025 federal and state tax rates. 
+              This 1099 tax calculator provides estimates only based on current 2026 federal and state tax rates. 
               Results are not official tax advice, not guaranteed to match your final tax liability, and do not 
               account for every possible credit, deduction, or special situation. For personalized advice, consult 
               a certified tax professional or CPA, or use the official{" "}
