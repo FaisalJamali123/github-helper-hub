@@ -24,7 +24,7 @@ const BlogWriteOffGroceries = () => {
     headline: "Can You Write Off Groceries as a 1099 Contractor?",
     description: "The IRS rules on deducting food expenses as a freelancer. When you can and can't claim groceries as a business expense.",
     datePublished: "2025-01-01",
-    dateModified: "2025-01-01",
+    dateModified: "2026-01-12",
     url: "https://moneygrowtools.com/blog/write-off-groceries",
   });
 
@@ -33,7 +33,7 @@ const BlogWriteOffGroceries = () => {
     { question: "What food expenses CAN 1099 contractors deduct?", answer: "Business meals with clients (50% deductible if business is discussed), travel meals when traveling overnight for business (50%), food ingredients for content creation (food bloggers, recipe developers), and office snacks for employees if you have staff." },
     { question: "Can I deduct my lunch if I work from home?", answer: "No. Working from home doesn't change the nature of personal meals. You would eat lunch whether you were working or not, so it's not a business expense." },
     { question: "Are DoorDash driver meals deductible?", answer: "No. The food you eat while delivering is personal consumption. The only food expense a delivery driver might deduct is food purchased for actual business meetings." },
-    { question: "What deductions should freelancers focus on instead of groceries?", answer: "Focus on larger legitimate deductions: home office ($5/sq ft up to $1,500), vehicle mileage ($0.70/mile in 2025), software/subscriptions (100% deductible), health insurance (full deduction if self-employed), and retirement contributions (SEP-IRA up to $69,000)." }
+    { question: "What deductions should freelancers focus on instead of groceries?", answer: "Focus on larger legitimate deductions: home office ($5/sq ft up to $1,500), vehicle mileage ($0.70/mile in 2026), software/subscriptions (100% deductible), health insurance (full deduction if self-employed), and retirement contributions (SEP-IRA up to $69,000)." }
   ]);
 
   const deductionCategories = [
@@ -112,7 +112,7 @@ const BlogWriteOffGroceries = () => {
               based on your profession and how you use the food.
             </p>
             <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
-              <span>Updated: January 2025</span>
+              <span>Updated: January 2026</span>
               <span>•</span>
               <span>6 min read</span>
             </div>
@@ -313,7 +313,7 @@ const BlogWriteOffGroceries = () => {
             </p>
             <ul>
               <li><strong>Home office:</strong> $5/sq ft simplified method, up to $1,500</li>
-              <li><strong>Vehicle mileage:</strong> $0.70/mile in 2025</li>
+              <li><strong>Vehicle mileage:</strong> $0.70/mile in 2026</li>
               <li><strong>Software/subscriptions:</strong> 100% deductible</li>
               <li><strong>Health insurance:</strong> Full deduction if self-employed</li>
               <li><strong>Retirement contributions:</strong> SEP-IRA up to $69,000</li>

@@ -130,7 +130,7 @@ const CalculatorQuarterlySEOContent = () => {
           <div className="flex items-center gap-2 mb-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-semibold uppercase tracking-wider animate-pulse">
               <Sparkles className="w-3.5 h-3.5" />
-              Free Tool • 2025 Updated
+              Free Tool • 2026 Updated
             </span>
           </div>
 
@@ -147,7 +147,7 @@ const CalculatorQuarterlySEOContent = () => {
             get a breakdown of federal income tax,{" "}
             <Link to="/calculator/self-employment" className="text-primary hover:underline">self-employment tax</Link>, and 
             state tax estimates — divided into four quarterly installments. Updated for the{" "}
-            <strong className="text-foreground">2025 tax year</strong>, this tool helps you avoid underpayment penalties 
+            <strong className="text-foreground">2026 tax year</strong>, this tool helps you avoid underpayment penalties 
             and plan your cash flow effectively based on{" "}
             <a href="https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center gap-1">
               IRS guidelines <ExternalLink className="w-3 h-3" />

@@ -50,7 +50,7 @@ const faqs: FAQItem[] = [
 
 const deductions = [
   "Home office and utilities",
-  "Mileage (67 cents/mile in 2025)",
+  "Mileage (70 cents/mile in 2026)",
   "Supplies and equipment",
   "Health insurance premiums",
   "Retirement contributions (SEP-IRA, Solo 401k)",
@@ -122,13 +122,13 @@ const Calculator1099VsW2SEOContent = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center space-y-6">
             <Badge className="bg-primary/10 text-primary border-primary/20">
-              Free • No Signup • 2025 Rates
+              Free • No Signup • 2026 Rates
             </Badge>
             <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
               Free 1099 vs W-2 Calculator
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Instantly compare the financial differences between working as an independent contractor (1099) and a traditional employee (W-2). Enter your gross income, expected deductions, filing status, and state to see breakdowns of taxes, net pay, and potential benefits costs — all updated for the 2025 tax year.
+              Instantly compare the financial differences between working as an independent contractor (1099) and a traditional employee (W-2). Enter your gross income, expected deductions, filing status, and state to see breakdowns of taxes, net pay, and potential benefits costs — all updated for the 2026 tax year.
             </p>
             <p className="text-muted-foreground">
               No signup required. Accurate estimates based on current IRS rates. Start comparing now.
@@ -340,7 +340,7 @@ const Calculator1099VsW2SEOContent = () => {
           </div>
 
           <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="font-semibold text-foreground mb-4">Federal Income Tax Brackets (2025 Single Filer)</h3>
+            <h3 className="font-semibold text-foreground mb-4">Federal Income Tax Brackets (2026 Single Filer)</h3>
             <div className="space-y-2">
               {taxBrackets.slice(0, showAllBrackets ? undefined : 4).map((bracket, index) => (
                 <div key={index} className="flex justify-between items-center py-2 border-b border-border last:border-0">
@@ -619,7 +619,7 @@ const Calculator1099VsW2SEOContent = () => {
               Important Tax Disclaimer
             </h2>
             <p className="text-sm text-muted-foreground">
-              This 1099 vs W-2 calculator provides estimates based on 2025 federal and state rates. It's not official tax or financial advice and doesn't account for all credits, unique situations, or changes in law. Results may vary; consult a CPA or tax professional for personalized guidance. Use{" "}
+              This 1099 vs W-2 calculator provides estimates based on 2026 federal and state rates. It's not official tax or financial advice and doesn't account for all credits, unique situations, or changes in law. Results may vary; consult a CPA or tax professional for personalized guidance. Use{" "}
               <a 
                 href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center"
                 target="_blank"
