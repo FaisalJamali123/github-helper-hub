@@ -1,6 +1,6 @@
 import { ArrowRight, Shield, Zap, Lock, Calendar, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import EmailCaptureModal from "@/components/EmailCaptureModal";
+import EmailCaptureModal from "@/components/shared/EmailCaptureModal";
 
 const CTASection = () => {
   return (
