@@ -144,6 +144,8 @@ const Blog2026TaxGuide = () => {
     { question: "What are the best deductions for freelancers in 2026?", answer: "Top deductions include: home office ($5/sq ft up to $1,500), vehicle mileage (~$0.70/mile), health insurance premiums, retirement contributions (SEP-IRA/Solo 401k), equipment, software subscriptions, internet/phone, and professional development." },
     { question: "Do I still need to pay taxes if I don't receive a 1099 form?", answer: "Yes! All income is taxable regardless of whether you receive a 1099. The $2,000 threshold only affects reporting requirements for payers. Track all income meticulously and report it on your tax return." }
   ]);
+
+  return (
     <Layout>
       <SEOHead
         title="2026 1099 Tax Guide for Freelancers | Prepare Now for Tax Year 2026"
