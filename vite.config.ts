@@ -40,11 +40,7 @@ export default defineConfig(({ mode }) => ({
       changefreq: "weekly",
       priority: 0.8,
       lastmod: new Date().toISOString().split("T")[0],
-      generateRobotsTxt: true,
-      robots: [
-        { userAgent: "*", allow: "/" },
-        { userAgent: "*", disallow: ["/api/", "/admin/"] },
-      ],
+      generateRobotsTxt: false,
     }),
   ].filter(Boolean),
   resolve: {
