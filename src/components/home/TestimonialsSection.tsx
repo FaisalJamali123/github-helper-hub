@@ -1,9 +1,9 @@
 import { Star } from "lucide-react";
 
 // Import testimonial images
-import sarahImage from "@/assets/testimonials/sarah-mitchell.webp";
-import jamesImage from "@/assets/testimonials/james-kim.webp";
-import mariaImage from "@/assets/testimonials/maria-rodriguez.webp";
+import sarahImage from "@/assets/sarah-mitchell.webp";
+import jamesImage from "@/assets/james-kim.webp";
+import mariaImage from "@/assets/maria-rodriguez.webp";
 
 // Realistic testimonials based on common freelancer experiences
 const testimonials = [
