@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,8 +7,6 @@
 /* Money Grow Tools - Professional Financial Design System */
 /* Theme: Trust Blue + Gold Accents for Authority */
 /* Typography: Montserrat (headings) + Lato (body) - Clean & Professional */
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap');
 
 @layer base {
   :root {
